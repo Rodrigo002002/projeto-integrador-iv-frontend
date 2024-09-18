@@ -1,0 +1,275 @@
+{
+    "active": "Ativo",
+    "archives": "Arquivos",
+    "administrator": "Administrador",
+    "aplication": "Aplicação",
+    "attention": "Atenção",
+
+    "back": "Voltar",
+    "button": {
+        "add": "Adicionar",
+        "cancel": "Cancelar",
+        "cleanFilter": "Limpar Filtro",
+        "create": "Cadastrar",
+        "delete": "Deletar",
+        "disable": "Desativar",
+        "edit": "Editar",
+        "enable": "Ativar",
+        "filter": "Filtrar",
+        "logout": "Sair",
+        "ok": "Ok",
+        "ordering": "Ordenar",
+        "reset": "Resetar",
+        "return": "Voltar",
+        "save": "Salvar",
+        "search": "Pesquisar",
+        "send": "Enviar",
+        "sendEmail": "Enviar e-mail",
+        "transfer": "Transferir"
+    },
+
+    "calendar": {
+        "createEvent": "Cadastrar evento",
+
+        "editEvent": "Editar evento",
+        "eventDescription": "Descrição do evento",
+        "eventTitle": "Titulo do evento",
+
+        "finalDate": "Data fim",
+
+        "initialDate": "Data inicio"
+    },
+    "changePassword": "Alterar senha",
+    "chooseFile": "Escolha um arquivo",
+    "chooseOption": "Selecione uma opção",
+    "clickToOpen": "Clique para abrir",
+    "collapseAll": "Recolher todos",
+    "color": "Cor",
+    "company": "Empresa",
+    "companies": "Empresas",
+    "confirmPassword": "Confirmação de senha",
+    "consult": "Consultar",
+    "create": "Cadastrar",
+    "currentCompany": "Empresa atual",
+
+    "datatable": {
+        "filter": {
+            "contain": "Contém",
+            "endWith": "Termina com",
+            "equal": "Igual",
+            "greaterThan": "Maior que",
+            "greaterThanEqual": "Maior ou igual a",
+            "isNotNull": "Não é nulo",
+            "isNull": "É nulo",
+            "lessThan": "Menor que",
+            "lessThanEqual": "Menor ou igual a",
+            "noFilter": "Nenhum",
+            "notContain": "Não Contém",
+            "notEqual": "Diferente",
+            "startWith": "Começa com"
+        },
+        "loading": "Carregando dados ...",
+        "noDataContent": "Nenhum registro",
+        "paginationInfo": "Exibindo de {{from}} até {{to}} de {{totalRecords}} registros"
+    },
+
+    "deselectAll": "Desmarcar todos",
+    "description": "Descrição",
+    "documents": "Documentos",
+
+    "edit": "Editar",
+    "enableLog": "Habilitar log",
+    "end": "Término",
+    "email": "E-mail",
+    "expandAll": "Expandir todos",
+
+    "filter": "Filtro",
+    "finalDate": "Data fim",
+
+    "fullName": "Nome Completo",
+
+    "generalAccess": "Acesso geral",
+
+    "header": "Cabeçalho",
+    "help": "Ajuda",
+    "home": "Home",
+    "hour": "Hora",
+
+    "icon": "Icone",
+    "id": "Id",
+    "important": "Importante",
+    "inactive": "Inativo",
+    "initialDate": "Data inicio",
+    "internalServerError": "Erro do servidor",
+
+    "link": "Link",
+    "listing": "Listagem",
+    "loading": "Carregando",
+    "login": "Login",
+
+    "manageFiles": "Gerenciar arquivos",
+    "menu": "Menu",
+    "menus": "Menus",
+    "message": {
+        "deleteData": "Deseja deletar esse registro?",
+        "internalServerError": "Erro interno do servidor!",
+        "logout": "Deseja sair do sistema?",
+        "pageNotFound": "A página requisitada não existe!",
+        "process": {
+            "error": "Erro ao concluir processo",
+            "success": "Processo concluído com sucesso"
+        },
+        "serviceUnavailable": "O serviço solicitado está indisponível!",
+        "toDisable": "Deseja desativar este registro?",
+        "toEnable": "Deseja ativar este registro?",
+        "unauthorizedError": "Você não tem acesso a esta página!"
+    },
+    "method": "Método",
+    "more": "Mais",
+
+    "monthsOfYear": {
+        "april": "Abril",
+        "august": "Agosto",
+        "december": "Dezembro",
+        "february": "Fevereiro",
+        "january": "Janeiro",
+        "july": "Julho",
+        "june": "Junho",
+        "march": "Março",
+        "may": "Maio",
+        "november": "Novembro",
+        "october": "Outubro",
+        "september": "Setembro"
+    },
+
+    "name": "Nome",
+    "nickname": "Apelido",
+    "no": "Não",
+    "note": "Nota",
+
+    "observation": "Observação",
+    "obrigatory": "Esta informação é obrigatória",
+    "order": "Ordem",
+    "orientations": "Orientações",
+
+    "pageNotFound": "Página não encontrada",
+    "password": "Senha",
+    "permissions": "Permissões",
+    "personal": "Pessoal",
+    "phone": "Telefone",
+    "processing": "Processando",
+    "profile": "Perfil",
+    "profiles": "Perfis",
+    "provider": "Provedor",
+
+    "recoverPassword": "Recuperar senha",
+    "ref": "Ref",
+    "registers": "Cadastros",
+    "relationship": "Relacionamento",
+    "relationships": "Relacionamentos",
+    "report": "Relatório",
+    "reports": "Relatórios",
+    "requester": "Solicitante",
+    "requesters": "Solicitantes",
+    "rg": "rg",
+    "route": "Rota",
+    "routes": "Rotas",
+
+    "search": "Pesquisar",
+    "service": "Serviço",
+    "services": "Serviços",
+    "select": {
+        "noOptions": "Nenhum registro",
+        "noResult": "Nenhum registro encontrado",
+        "placeHolder": "Selecionar...",
+        "pressEnterToRemove": "Tecle Enter para remover",
+        "pressEnterToSelect": "Tecle Enter para selecionar",
+        "selected": "Selecionado"
+    },
+    "selectAll": "Marcar todos",
+    "serviceUnavailable": "Serviço indisponível",
+    "settings": "Configurações",
+    "showOnlyVisible": "Exibir somente os visíveis",
+    "start": "Início",
+    "status": "Status",
+    "switchCompany": "Trocar de empresa",
+    "system": "Sistema",
+    "systemAccess": "Acesso ao sistema",
+
+    "teacher": "Professor",
+    "title": "Título",
+    "theme": {
+        "box": "Caixa",
+
+        "collapsible": "Colapsável",
+        "colorScheme": "Esquema de Cores",
+        "colorSchemeDescription": "Apresentação geral clara ou escura.",
+        "customizerDescription": "Defina as preferências que serão salvas.",
+        "customizerTitle": "Personalizador de Template",
+
+        "dark": "Escuro",
+        "direction": "Direção",
+        "directionDescription": "Selecione a direção do seu aplicativo.",
+
+        "fade": "Desvanecer",
+        "fadeDown": "Desvanecer para Baixo",
+        "fadeLeft": "Desvanecer para a Esquerda",
+        "fadeRight": "Desvanecer para a Direita",
+        "fadeUp": "Desvanecer para Cima",
+        "floating": "Flutuante",
+        "full": "Completo",
+
+        "horizontal": "Horizontal",
+
+        "layoutDescription": "Selecione o estilo de layout principal para o seu aplicativo.",
+        "layoutStyle": "Estilo de Layout",
+        "light": "Claro",
+        "ltr": "Esquerda para Direita (LTR)",
+
+        "navbarDescription": "Fixo ou Flutuante.",
+        "navbarType": "Tipo de Navbar",
+        "navigationDescription": "Selecione o paradigma principal de navegação para o seu aplicativo.",
+        "navigationPosition": "Posição de Navegação",
+        "none": "Nenhuma",
+
+        "reset": "Resetar",
+        "rtl": "Direita para Esquerda (RTL)",
+        "routerTransition": "Transição de Roteador",
+        "routerTransitionDescription": "Animação do conteúdo principal.",
+
+        "semiDark": "Semi Escuro (Sidebar & Cabeçalho)",
+        "slideDown": "Deslizar para Baixo",
+        "slideLeft": "Deslizar para a Esquerda",
+        "slideRight": "Deslizar para a Direita",
+        "static": "Estático",
+        "sticky": "Fixo",
+        "system": "Sistema",
+
+        "vertical": "Vertical",
+
+        "zoomIn": "Zoom In"
+    },
+    "total": "Total",
+
+    "unauthorizedError": "Página não autorizada",
+    "uninformed": "Não informado",
+    "upload": "Carregar",
+    "user": "Usuário",
+    "users": "Usuários",
+
+    "uri": "URI",
+
+    "validation": {
+        "invalidCpf": "CPF inválido",
+        "invalidEmail": "Digite um e-mail válido",
+        "invalidRg": "RG inválido","minLength": "Mínimo {{min}} caracteres",
+        "passwordMatch": "Confirmação de senha diferente da nova senha",
+        "required": "Preenchimento obrigatório"
+    },
+    "view": "Visualizar",
+    "visible": "Visível",
+
+    "writeHere": "Escreva aqui...",
+
+    "yes": "Sim"
+}
