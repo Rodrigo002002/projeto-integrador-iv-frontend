@@ -1,51 +1,53 @@
-import { useParams } from 'react-router-dom';
-import { useTranslation } from 'react-i18next';
-import { Dialog, DialogPanel, Transition, TransitionChild } from '@headlessui/react';
 import React, { Fragment } from 'react';
+import { Dialog, DialogPanel, Transition, TransitionChild } from '@headlessui/react';
 import { DynamicIcons } from '@/components/DynamicIcons/DynamicIcons';
-import { IServicosModalProps } from '@/components/Modals/Servicos/interfaces';
 import BasicDataTable from '@/components/DataTable/BasicDataTable';
+import { useTranslation } from 'react-i18next';
 import { DataTableColumn } from 'mantine-datatable';
-import { IPagamento } from '@/types/IPagamento';
+import { IAlunosModalProps } from '@/components/Modals/Alunos/interfaces';
 
-const ServicosModal: React.FC<IServicosModalProps> = ({
-                                                          isServicoModal,
-                                                          servicos,
-                                                          setIsServicoModal
-                                                      }) => {
+const AlunosModal: React.FC<IAlunosModalProps> = ({
+                                                      isAlunosModal,
+                                                      alunos,
+                                                      setIsAlunosModal
+                                                  }) => {
     const { t } = useTranslation();
 
     const columns: DataTableColumn<any>[] = [
         {
-            accessor: "id",
-            title: "Id"
+            accessor: 'id',
+            title: 'Id'
         },
         {
-            accessor: "tipo",
-            title: "Tipo",
+            accessor: 'nome',
+            title: t('name')
         },
         {
-            accessor: "pagamento.pago",
-            title: "Pago",
-            render: (pago: boolean) => (
-                <div>
-                    <span>{pago ? t('yes') : t('no')}</span>
-                </div>
-            )
+            accessor: 'telefone',
+            title: t('telefone')
         },
         {
-            accessor: "professor.nome",
-            title: "Professor",
+            accessor: 'email',
+            title: t('email')
         },
         {
-            accessor: "aluno.nome",
-            title: "Aluno",
+            accessor: 'rg',
+            title: t('rg')
+        },
+        {
+            accessor: 'cpf',
+            title: t('cpf')
+        },
+        {
+            accessor: 'turma',
+            title: t('class')
         }
-    ]
+    ];
+
     return (
         <div>
-            <Transition appear show={isServicoModal} as={Fragment}>
-                <Dialog as="div" open={isServicoModal} onClose={() => setIsServicoModal(false)}
+            <Transition appear show={isAlunosModal} as={Fragment}>
+                <Dialog as="div" open={isAlunosModal} onClose={() => setIsAlunosModal(false)}
                         className="relative z-[51]">
 
                     <TransitionChild as={Fragment} enter="ease-out duration-300" enterFrom="opacity-0"
@@ -70,7 +72,7 @@ const ServicosModal: React.FC<IServicosModalProps> = ({
                                     <button
                                         type="button"
                                         onClick={() => {
-                                            setIsServicoModal(false);
+                                            setIsAlunosModal(false);
                                         }}
                                         className="absolute top-4 ltr:right-4 rtl:left-4 text-white-dark"
                                     >
@@ -79,11 +81,11 @@ const ServicosModal: React.FC<IServicosModalProps> = ({
 
                                     <div
                                         className="text-lg font-medium bg-[#fbfbfb] dark:bg-[#121c2c] ltr:pl-5 rtl:pr-5 py-3 ltr:pr-[50px] rtl:pl-[50px]">
-                                        {t('services')}
+                                        {t('students')}
 
                                         <BasicDataTable
                                             columns={columns}
-                                            data={servicos}
+                                            data={alunos}
                                         />
                                     </div>
 
@@ -95,7 +97,7 @@ const ServicosModal: React.FC<IServicosModalProps> = ({
                                         <div className="flex justify-center items-center mt-8">
                                             <button
                                                 onClick={() => {
-                                                    setIsServicoModal(false);
+                                                    setIsAlunosModal(false);
                                                 }}
                                                 type="button"
                                                 className="btn btn-outline-danger"
@@ -114,4 +116,4 @@ const ServicosModal: React.FC<IServicosModalProps> = ({
     );
 };
 
-export default ServicosModal;
+export default AlunosModal;

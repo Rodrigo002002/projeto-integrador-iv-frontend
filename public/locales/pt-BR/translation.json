@@ -42,6 +42,8 @@
     "changePassword": "Alterar senha",
     "chooseFile": "Escolha um arquivo",
     "chooseOption": "Selecione uma opção",
+    "class": "Turma",
+    "classes": "Aulas",
     "clickToOpen": "Clique para abrir",
     "collapseAll": "Recolher todos",
     "color": "Cor",
@@ -78,6 +80,8 @@
     "documents": "Documentos",
 
     "edit": "Editar",
+    "editService": "Editar serviço",
+    "createService": "Editar serviço",
     "enableLog": "Habilitar log",
     "end": "Término",
     "email": "E-mail",
@@ -126,6 +130,7 @@
     },
     "method": "Método",
     "more": "Mais",
+    "modality": "Modalidade",
 
     "monthsOfYear": {
         "april": "Abril",
@@ -156,6 +161,7 @@
     "password": "Senha",
     "permissions": "Permissões",
     "personal": "Pessoal",
+    "period": "Periodo",
     "phone": "Telefone",
     "processing": "Processando",
     "profile": "Perfil",
@@ -192,6 +198,7 @@
     "showOnlyVisible": "Exibir somente os visíveis",
     "start": "Início",
     "status": "Status",
+    "student": "Aluno",
     "switchCompany": "Trocar de empresa",
     "system": "Sistema",
     "systemAccess": "Acesso ao sistema",
@@ -250,6 +257,7 @@
         "zoomIn": "Zoom In"
     },
     "total": "Total",
+    "type": "Tipo",
 
     "unauthorizedError": "Página não autorizada",
     "uninformed": "Não informado",

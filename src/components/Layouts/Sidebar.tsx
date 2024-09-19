@@ -73,8 +73,8 @@ const Sidebar = () => {
                             <li className="menu nav-item">
                                 <Link type="button"
                                       to="/"
-                                        className={`${currentMenu === 'home' ? 'active' : ''} nav-link group w-full`}
-                                        onClick={() => toggleMenu('home')}>
+                                      className={`${currentMenu === 'home' ? 'active' : ''} nav-link group w-full`}
+                                      onClick={() => toggleMenu('home')}>
                                     <div className="flex items-center">
                                         <DynamicIcons
                                             name="FaHome"
@@ -85,7 +85,6 @@ const Sidebar = () => {
                                     </div>
                                 </Link>
                             </li>
-
 
                             <h2 className="py-3 px-7 flex items-center uppercase font-extrabold bg-white-light/30 dark:bg-dark dark:bg-opacity-[0.08] -mx-4 mb-1">
                                 <DynamicIcons name="FaPerson" className="w-4 h-5 flex-none hidden" />
@@ -111,6 +110,81 @@ const Sidebar = () => {
                                     <ul className="sub-menu text-gray-500">
                                         <li>
                                             <NavLink to="/professor/consultar">{t('consult')}</NavLink>
+                                        </li>
+                                    </ul>
+                                </AnimateHeight>
+                            </li>
+
+                            <li className="menu nav-item">
+                                <button type="button"
+                                        className={`${currentMenu === 'service' ? 'active' : ''} nav-link group w-full`}
+                                        onClick={() => toggleMenu('service')}>
+                                    <div className="flex items-center">
+                                        <DynamicIcons name="MdDesignServices"
+                                                      className="group-hover:!text-primary shrink-0" />
+                                        <span
+                                            className="ltr:pl-3 rtl:pr-3 text-black dark:text-[#506690] dark:group-hover:text-white-dark">{t('service')}</span>
+                                    </div>
+
+                                    <div className={currentMenu !== 'service' ? 'rtl:rotate-90 -rotate-90' : ''}>
+                                        <DynamicIcons name="FaCaretDown" />
+                                    </div>
+                                </button>
+
+                                <AnimateHeight duration={300} height={currentMenu === 'service' ? 'auto' : 0}>
+                                    <ul className="sub-menu text-gray-500">
+                                        <li>
+                                            <NavLink to="/servico/consultar">{t('consult')}</NavLink>
+                                        </li>
+                                    </ul>
+                                </AnimateHeight>
+                            </li>
+
+                            <li className="menu nav-item">
+                                <button type="button"
+                                        className={`${currentMenu === 'class' ? 'active' : ''} nav-link group w-full`}
+                                        onClick={() => toggleMenu('class')}>
+                                    <div className="flex items-center">
+                                        <DynamicIcons name="FaPeopleGroup"
+                                                      className="group-hover:!text-primary shrink-0" />
+                                        <span
+                                            className="ltr:pl-3 rtl:pr-3 text-black dark:text-[#506690] dark:group-hover:text-white-dark">{t('class')}</span>
+                                    </div>
+
+                                    <div className={currentMenu !== 'class' ? 'rtl:rotate-90 -rotate-90' : ''}>
+                                        <DynamicIcons name="FaCaretDown" />
+                                    </div>
+                                </button>
+
+                                <AnimateHeight duration={300} height={currentMenu === 'class' ? 'auto' : 0}>
+                                    <ul className="sub-menu text-gray-500">
+                                        <li>
+                                            <NavLink to="/turma/consultar">{t('consult')}</NavLink>
+                                        </li>
+                                    </ul>
+                                </AnimateHeight>
+                            </li>
+
+                            <li className="menu nav-item">
+                                <button type="button"
+                                        className={`${currentMenu === 'student' ? 'active' : ''} nav-link group w-full`}
+                                        onClick={() => toggleMenu('student')}>
+                                    <div className="flex items-center">
+                                        <DynamicIcons name="FaRegAddressBook"
+                                                      className="group-hover:!text-primary shrink-0" />
+                                        <span
+                                            className="ltr:pl-3 rtl:pr-3 text-black dark:text-[#506690] dark:group-hover:text-white-dark">{t('student')}</span>
+                                    </div>
+
+                                    <div className={currentMenu !== 'student' ? 'rtl:rotate-90 -rotate-90' : ''}>
+                                        <DynamicIcons name="FaCaretDown" />
+                                    </div>
+                                </button>
+
+                                <AnimateHeight duration={300} height={currentMenu === 'student' ? 'auto' : 0}>
+                                    <ul className="sub-menu text-gray-500">
+                                        <li>
+                                            <NavLink to="/aluno/consultar">{t('consult')}</NavLink>
                                         </li>
                                     </ul>
                                 </AnimateHeight>

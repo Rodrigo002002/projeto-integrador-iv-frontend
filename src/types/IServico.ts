@@ -9,3 +9,10 @@ export interface IServico {
     professor: IProfessorResponse;
     aluno: IAluno;
 }
+
+export interface IServicoForm {
+    tipo: string | null;
+    pagamento: IPagamento | null;
+    professor: IProfessorResponse | null,
+    aluno: IAluno | null,
+}

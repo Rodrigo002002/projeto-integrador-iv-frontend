@@ -1,51 +1,62 @@
-import { useParams } from 'react-router-dom';
-import { useTranslation } from 'react-i18next';
+import React, { Fragment, useState } from 'react';
+import { IAulasModalProps } from '@/components/Modals/Aulas/interfaces';
 import { Dialog, DialogPanel, Transition, TransitionChild } from '@headlessui/react';
-import React, { Fragment } from 'react';
 import { DynamicIcons } from '@/components/DynamicIcons/DynamicIcons';
-import { IServicosModalProps } from '@/components/Modals/Servicos/interfaces';
 import BasicDataTable from '@/components/DataTable/BasicDataTable';
+import { useTranslation } from 'react-i18next';
 import { DataTableColumn } from 'mantine-datatable';
-import { IPagamento } from '@/types/IPagamento';
+import { IAluno } from '@/types/IAluno';
+import AlunosModal from '@/components/Modals/Alunos';
 
-const ServicosModal: React.FC<IServicosModalProps> = ({
-                                                          isServicoModal,
-                                                          servicos,
-                                                          setIsServicoModal
-                                                      }) => {
+const AulasModal: React.FC<IAulasModalProps> = ({
+                                                    isAulasModal,
+                                                    aulas,
+                                                    setIsAulasModal
+                                                }) => {
     const { t } = useTranslation();
+
+    // Modals
+    const [isOpenAlunosModal, setOpenAlunosModal] = useState<boolean>(false);
+
+    const [currentAlunos, setCurrentAlunos] = useState<IAluno[]>([]);
+
+    const openAlunosModal = (alunos: any) => {
+        var mappedAlunos: IAluno[] = []
+        alunos.alunosPresentes.map((aluno) => mappedAlunos.push(aluno));
+        console.log(mappedAlunos);
+        setOpenAlunosModal(true)
+        setCurrentAlunos(mappedAlunos);
+    }
 
     const columns: DataTableColumn<any>[] = [
         {
-            accessor: "id",
-            title: "Id"
+            accessor: 'id',
+            title: 'Id'
         },
         {
-            accessor: "tipo",
-            title: "Tipo",
+            accessor: 'data',
+            title: t('date.date')
         },
         {
-            accessor: "pagamento.pago",
-            title: "Pago",
-            render: (pago: boolean) => (
+            accessor: 'alunosPresentes',
+            title: t('students'),
+            render: (item: any) => (
                 <div>
-                    <span>{pago ? t('yes') : t('no')}</span>
+                    <button
+                        className="text-primary hover:text-black"
+                        onClick={() => openAlunosModal(item)}
+                    >
+                        <DynamicIcons name="FaEye" />
+                    </button>
                 </div>
             )
-        },
-        {
-            accessor: "professor.nome",
-            title: "Professor",
-        },
-        {
-            accessor: "aluno.nome",
-            title: "Aluno",
         }
-    ]
+    ];
+
     return (
         <div>
-            <Transition appear show={isServicoModal} as={Fragment}>
-                <Dialog as="div" open={isServicoModal} onClose={() => setIsServicoModal(false)}
+            <Transition appear show={isAulasModal} as={Fragment}>
+                <Dialog as="div" open={isAulasModal} onClose={() => setIsAulasModal(false)}
                         className="relative z-[51]">
 
                     <TransitionChild as={Fragment} enter="ease-out duration-300" enterFrom="opacity-0"
@@ -70,7 +81,7 @@ const ServicosModal: React.FC<IServicosModalProps> = ({
                                     <button
                                         type="button"
                                         onClick={() => {
-                                            setIsServicoModal(false);
+                                            setIsAulasModal(false);
                                         }}
                                         className="absolute top-4 ltr:right-4 rtl:left-4 text-white-dark"
                                     >
@@ -79,11 +90,11 @@ const ServicosModal: React.FC<IServicosModalProps> = ({
 
                                     <div
                                         className="text-lg font-medium bg-[#fbfbfb] dark:bg-[#121c2c] ltr:pl-5 rtl:pr-5 py-3 ltr:pr-[50px] rtl:pl-[50px]">
-                                        {t('services')}
+                                        {t('classes')}
 
                                         <BasicDataTable
                                             columns={columns}
-                                            data={servicos}
+                                            data={aulas}
                                         />
                                     </div>
 
@@ -95,7 +106,7 @@ const ServicosModal: React.FC<IServicosModalProps> = ({
                                         <div className="flex justify-center items-center mt-8">
                                             <button
                                                 onClick={() => {
-                                                    setIsServicoModal(false);
+                                                    setIsAulasModal(false);
                                                 }}
                                                 type="button"
                                                 className="btn btn-outline-danger"
@@ -110,8 +121,14 @@ const ServicosModal: React.FC<IServicosModalProps> = ({
                     </div>
                 </Dialog>
             </Transition>
+
+            <AlunosModal
+                isAlunosModal={isOpenAlunosModal}
+                setIsAlunosModal={setOpenAlunosModal}
+                alunos={currentAlunos}
+            />
         </div>
     );
 };
 
-export default ServicosModal;
+export default AulasModal;

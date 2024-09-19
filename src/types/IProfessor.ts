@@ -31,6 +31,6 @@ export interface IProfessorForm {
     email: string | null,
     rg: string | null,
     cpf: string | null,
-    documentosIds: number[] | null,
-    servicoId: number | null,
+    documentos: IDocumento[] | null,
+    servicos: IServico[] | null,
 }

@@ -7,7 +7,7 @@ export interface ITurma {
     id: number;
     modalidade?: IModalidade;
     aulas?: IAula[];
-    aluno?: IAluno[];
+    alunos?: IAluno[];
     professor?: IProfessorResponse;
     periodo: string;
 }

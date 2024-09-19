@@ -1,28 +1,28 @@
-import BreadCrumbs from '@/components/BreadCrumbs/BreadCrumbs';
-import React, { useEffect, useState } from 'react';
 import { IBreadcrumbItem } from '@/components/BreadCrumbs/interfaces';
 import { useTranslation } from 'react-i18next';
-import { FormProvider } from '@/providers/FormProvider';
-import { FormikProps } from 'formik';
+import { useParams } from 'react-router-dom';
+import BreadCrumbs from '@/components/BreadCrumbs/BreadCrumbs';
+import professoresData from '@/Datas/professores.json';
+import React, { useEffect, useState } from 'react';
+import { IServicoForm } from '@/types/IServico';
 import { IProfessorForm } from '@/types/IProfessor';
-import { DynamicIcons } from '@/components/DynamicIcons/DynamicIcons';
+import { FormikProps } from 'formik';
+import CoreLoader from '@/components/Loader';
+import { FormProvider } from '@/providers/FormProvider';
 import FormInput from '@/components/Form/FormInput';
 import FormInputRg from '@/components/Form/FormInputRg';
 import FormInputCpf from '@/components/Form/FormInputCpf';
-import FormInputFile from '@/components/Form/FormInputFile';
-import { useParams } from 'react-router-dom';
-import professoresData from '@/Datas/professores.json';
-import CoreLoader from '@/components/Loader';
+import { DynamicIcons } from '@/components/DynamicIcons/DynamicIcons';
 
-const ProfessorManter = () => {
+const ServicoManter = () => {
     const { id } = useParams<{ id: string }>();
 
     const { t } = useTranslation();
 
     const breadCrumbsItems: IBreadcrumbItem[] = [
         {
-            label: t('teacher'),
-            uri: '/professor/consultar'
+            label: t('service'),
+            uri: '/servico/consultar'
         },
         {
             label: id ? t('edit') : t('create')
@@ -30,31 +30,27 @@ const ProfessorManter = () => {
     ];
 
     // Form
-    const formInitialValues: IProfessorForm = {
-        nome: null,
-        role: null,
-        telefone: null,
-        email: null,
-        rg: null,
-        cpf: null,
-        documentos: null,
-        servicos: null
-    };
+    const formInitialValues: IServicoForm = {
+        tipo: null,
+        pagamento: null,
+        professor: null,
+        aluno: null
+    }
 
     const [genericError, setGenericError] = useState<string | null>(null);
     const [loadingBtn, setLoadingBtn] = useState<boolean>(false);
     const [initialValues, setInitialValues] = useState(formInitialValues);
 
+
     useEffect(() => {
         if (id) {
-            setInitialValues(professoresData[0]);
+            setInitialValues(professoresData[0].servicos[0]);
         }
     }, []);
 
     const onSubmit = (values: IProfessorForm) => {
 
     };
-
     return (
         <div>
             <BreadCrumbs
@@ -68,47 +64,24 @@ const ProfessorManter = () => {
                             <>
                                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                                     <FormInput
-                                        name="nome"
-                                        label={t('name')}
+                                        name="tipo"
+                                        label={t('type')}
                                         required={true}
-                                        placeholder={t('name')}
+                                        placeholder={t('type')}
                                     />
 
                                     <FormInput
-                                        name="telefone"
-                                        label={t('phone')}
+                                        name="professor.nome"
+                                        label={t('teacher')}
                                         required={true}
-                                        placeholder={t('phone')}
+                                        placeholder={t('teacher')}
                                     />
 
                                     <FormInput
-                                        name="email"
-                                        label={t('email')}
+                                        name="aluno.nome"
+                                        label={t('student')}
                                         required={true}
-                                        placeholder={t('email')}
-                                    />
-
-                                    <FormInputRg
-                                        name="rg"
-                                        label={t('RG')}
-                                        required={true}
-                                        placeholder={t('RG')}
-                                    />
-
-                                    <FormInputCpf
-                                        name="cpf"
-                                        label={t('CPF')}
-                                        required={true}
-                                        placeholder={t('CPF')}
-                                    />
-                                </div>
-
-                                <div className="grid grid-cols-1 gap-4">
-                                    <FormInputFile
-                                        name="documentosIds"
-                                        label={t('documents')}
-                                        required={true}
-                                        multiple={true}
+                                        placeholder={t('student')}
                                     />
                                 </div>
 
@@ -135,6 +108,6 @@ const ProfessorManter = () => {
             </div>
         </div>
     );
-};
+}
 
-export default ProfessorManter;
+export default ServicoManter;
