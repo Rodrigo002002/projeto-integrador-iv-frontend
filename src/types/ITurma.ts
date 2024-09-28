@@ -11,3 +11,12 @@ export interface ITurma {
     professor?: IProfessorResponse;
     periodo: string;
 }
+
+export interface ITurmaForm {
+    id: number | null,
+    modalidade?: IModalidade | null,
+    aulas?: IAula[] | null,
+    alunos?: IAluno[] | null,
+    professor?: IProfessorResponse | null,
+    periodo: string | null
+}

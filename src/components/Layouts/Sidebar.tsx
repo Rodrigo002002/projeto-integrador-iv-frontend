@@ -134,7 +134,8 @@ const Sidebar = () => {
                                 <AnimateHeight duration={300} height={currentMenu === 'service' ? 'auto' : 0}>
                                     <ul className="sub-menu text-gray-500">
                                         <li>
-                                            <NavLink to="/servico/consultar">{t('consult')}</NavLink>
+                                            <NavLink
+                                                to="/servico/tipo/consultar">{`${t('type')} / ${t('consult')}`}</NavLink>
                                         </li>
                                     </ul>
                                 </AnimateHeight>
@@ -185,6 +186,81 @@ const Sidebar = () => {
                                     <ul className="sub-menu text-gray-500">
                                         <li>
                                             <NavLink to="/aluno/consultar">{t('consult')}</NavLink>
+                                        </li>
+                                    </ul>
+                                </AnimateHeight>
+                            </li>
+
+                            <li className="menu nav-item">
+                                <button type="button"
+                                        className={`${currentMenu === 'team' ? 'active' : ''} nav-link group w-full`}
+                                        onClick={() => toggleMenu('team')}>
+                                    <div className="flex items-center">
+                                        <DynamicIcons name="FaArrowsDownToPeople"
+                                                      className="group-hover:!text-primary shrink-0" />
+                                        <span
+                                            className="ltr:pl-3 rtl:pr-3 text-black dark:text-[#506690] dark:group-hover:text-white-dark">{t('team')}</span>
+                                    </div>
+
+                                    <div className={currentMenu !== 'team' ? 'rtl:rotate-90 -rotate-90' : ''}>
+                                        <DynamicIcons name="FaCaretDown" />
+                                    </div>
+                                </button>
+
+                                <AnimateHeight duration={300} height={currentMenu === 'team' ? 'auto' : 0}>
+                                    <ul className="sub-menu text-gray-500">
+                                        <li>
+                                            <NavLink to="/equipe/consultar">{t('consult')}</NavLink>
+                                        </li>
+                                    </ul>
+                                </AnimateHeight>
+                            </li>
+
+                            <li className="menu nav-item">
+                                <button type="button"
+                                        className={`${currentMenu === 'event' ? 'active' : ''} nav-link group w-full`}
+                                        onClick={() => toggleMenu('event')}>
+                                    <div className="flex items-center">
+                                        <DynamicIcons name="CiTrophy"
+                                                      className="group-hover:!text-primary shrink-0" />
+                                        <span
+                                            className="ltr:pl-3 rtl:pr-3 text-black dark:text-[#506690] dark:group-hover:text-white-dark">{t('event')}</span>
+                                    </div>
+
+                                    <div className={currentMenu !== 'event' ? 'rtl:rotate-90 -rotate-90' : ''}>
+                                        <DynamicIcons name="FaCaretDown" />
+                                    </div>
+                                </button>
+
+                                <AnimateHeight duration={300} height={currentMenu === 'event' ? 'auto' : 0}>
+                                    <ul className="sub-menu text-gray-500">
+                                        <li>
+                                            <NavLink to="/evento/consultar">{t('consult')}</NavLink>
+                                        </li>
+                                    </ul>
+                                </AnimateHeight>
+                            </li>
+
+                            <li className="menu nav-item">
+                                <button type="button"
+                                        className={`${currentMenu === 'plan' ? 'active' : ''} nav-link group w-full`}
+                                        onClick={() => toggleMenu('plan')}>
+                                    <div className="flex items-center">
+                                        <DynamicIcons name="CiMoneyCheck1"
+                                                      className="group-hover:!text-primary shrink-0" />
+                                        <span
+                                            className="ltr:pl-3 rtl:pr-3 text-black dark:text-[#506690] dark:group-hover:text-white-dark">{t('plan')}</span>
+                                    </div>
+
+                                    <div className={currentMenu !== 'plan' ? 'rtl:rotate-90 -rotate-90' : ''}>
+                                        <DynamicIcons name="FaCaretDown" />
+                                    </div>
+                                </button>
+
+                                <AnimateHeight duration={300} height={currentMenu === 'plan' ? 'auto' : 0}>
+                                    <ul className="sub-menu text-gray-500">
+                                        <li>
+                                            <NavLink to="/plano/consultar">{t('plan')}</NavLink>
                                         </li>
                                     </ul>
                                 </AnimateHeight>

@@ -12,8 +12,6 @@ const DocumentosModal: React.FC<IDocumentosModalProps> = ({
                                                               documentos,
                                                               setIsDocumentoModal,
                                                           }) => {
-    const { id } = useParams<{ id: string }>();
-
     const { t } = useTranslation();
 
     return (
@@ -40,7 +38,7 @@ const DocumentosModal: React.FC<IDocumentosModalProps> = ({
                                 leaveTo="opacity-0 scale-95"
                             >
                                 <DialogPanel
-                                    className="panel border-0 p-0 rounded-lg overflow-hidden md:w-full max-w-lg w-[90%] my-8">
+                                    className="panel border-0 p-0 rounded-lg overflow-hidden md:w-full max-w-2xl w-[90%] my-8">
                                     <button
                                         type="button"
                                         onClick={() => {

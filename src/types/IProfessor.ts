@@ -20,17 +20,18 @@ export interface IProfessorRequest {
     email: string,
     rg: string,
     cpf: string,
-    documentosIds: number[],
-    servicoId: number
+    documentos: IDocumento[],
+    servicos: IServico[]
 }
 
 export interface IProfessorForm {
+    id?: string | null,
     nome: string | null,
     role: string | null,
-    telefone: string | null,
-    email: string | null,
     rg: string | null,
     cpf: string | null,
+    telefone: string | null,
+    email: string | null,
     documentos: IDocumento[] | null,
     servicos: IServico[] | null,
 }

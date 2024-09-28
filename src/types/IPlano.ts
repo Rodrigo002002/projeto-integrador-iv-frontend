@@ -7,6 +7,14 @@ export interface IPlano {
     tipo: string,
     beneficios: string[],
     preco: string,
-    modalidades: IModalidade[],
-    pagamentos: IPagamento[],
+    modalidades: IModalidade[]
+}
+
+export interface IPlanoForm {
+    id: number | null,
+    nome: string | null,
+    tipo: string | null,
+    beneficios: string[] | null,
+    preco: string | null,
+    modalidades: IModalidade[] | null
 }

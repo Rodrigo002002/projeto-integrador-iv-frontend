@@ -6,6 +6,7 @@ import { deleteData, disableData, enableData } from '@/services/GenericService';
 import DeleteModal from '@/components/Modals/Delete';
 import { ActionMenuProps } from './interfaces';
 import { DynamicIcons } from '@/components/DynamicIcons/DynamicIcons';
+import { useTranslation } from 'react-i18next';
 
 const ActionMenu: React.FC<ActionMenuProps> = ({
                                                    item,
@@ -21,6 +22,8 @@ const ActionMenu: React.FC<ActionMenuProps> = ({
                                                    updateRoute = 'editar',
                                                    activeColumnName = 'active'
                                                }) => {
+
+    const { t } = useTranslation();
 
     const [isDeleteMessageModal, setIsDeleteMessageModal] = useState<boolean>(false);
     const [currentItem, setCurrentItem] = useState<any>(null);
@@ -84,7 +87,7 @@ const ActionMenu: React.FC<ActionMenuProps> = ({
                                 fontSize: '14px'
                             }}
                         >
-                            Editar
+                            {t('button.edit')}
                         </Menu.Item>
                     )}
 
@@ -97,7 +100,7 @@ const ActionMenu: React.FC<ActionMenuProps> = ({
                                 fontSize: '14px'
                             }}
                         >
-                            Desabilitar
+                            {t('button.disable')}
                         </Menu.Item>
                     )}
 
@@ -110,7 +113,7 @@ const ActionMenu: React.FC<ActionMenuProps> = ({
                                 fontSize: '14px'
                             }}
                         >
-                            Habilitar
+                            {t('button.able')}
                         </Menu.Item>
                     )}
 
@@ -124,7 +127,7 @@ const ActionMenu: React.FC<ActionMenuProps> = ({
                                 fontSize: '14px'
                             }}
                         >
-                            Deletar
+                            {t('button.delete')}
                         </Menu.Item>
                     )}
                 </Menu.Dropdown>

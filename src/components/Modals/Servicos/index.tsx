@@ -21,25 +21,28 @@ const ServicosModal: React.FC<IServicosModalProps> = ({
             title: "Id"
         },
         {
-            accessor: "tipo",
-            title: "Tipo",
+            accessor: "tipoServico.tipo",
+            title: t('type'),
         },
         {
-            accessor: "pagamento.pago",
-            title: "Pago",
+            accessor: "data",
+            title: t('date.date'),
+        },
+        {
+            accessor: 'pagamento.pago',
+            title: t('paid'),
+            textAlign: 'center',
             render: (pago: boolean) => (
-                <div>
-                    <span>{pago ? t('yes') : t('no')}</span>
-                </div>
+                <span className={pago ? "flex justify-center text-success" : "flex justify-center text-danger"}>{pago ? t('yes') : t('no')}</span>
             )
         },
         {
             accessor: "professor.nome",
-            title: "Professor",
+            title: t('teacher'),
         },
         {
             accessor: "aluno.nome",
-            title: "Aluno",
+            title: t('student'),
         }
     ]
     return (
@@ -55,7 +58,7 @@ const ServicosModal: React.FC<IServicosModalProps> = ({
                     </TransitionChild>
 
                     <div className="fixed inset-0 z-[999] overflow-y-auto">
-                        <div className="flex items-center justify-center min-h-screen px-4 ">
+                        <div className="flex items-center justify-center min-h-screen wpx-4 ">
                             <TransitionChild
                                 as={Fragment}
                                 enter="ease-out duration-300"
@@ -66,7 +69,7 @@ const ServicosModal: React.FC<IServicosModalProps> = ({
                                 leaveTo="opacity-0 scale-95"
                             >
                                 <DialogPanel
-                                    className="panel border-0 p-0 rounded-lg overflow-hidden md:w-full max-w-lg w-[90%] my-8">
+                                    className="panel border-0 p-0 rounded-lg overflow-hidden md:w-full max-w-2xl w-[90%] my-8">
                                     <button
                                         type="button"
                                         onClick={() => {
@@ -79,7 +82,9 @@ const ServicosModal: React.FC<IServicosModalProps> = ({
 
                                     <div
                                         className="text-lg font-medium bg-[#fbfbfb] dark:bg-[#121c2c] ltr:pl-5 rtl:pr-5 py-3 ltr:pr-[50px] rtl:pl-[50px]">
-                                        {t('services')}
+                                        <div className="mb-5">
+                                            {t('services')}
+                                        </div>
 
                                         <BasicDataTable
                                             columns={columns}

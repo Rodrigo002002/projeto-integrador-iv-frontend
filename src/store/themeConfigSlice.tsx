@@ -15,7 +15,7 @@ const defaultState = {
     sidebar: false,
     pageTitle: '',
     languageList: [
-        { code: 'pt-BR', name: 'Português' },
+        { code: 'BR', name: 'Português' },
     ],
     semidark: false,
 };
@@ -32,7 +32,7 @@ const initialState = {
     sidebar: localStorage.getItem('sidebar') || defaultState.sidebar,
     semidark: localStorage.getItem('semidark') || themeConfig.semidark,
     languageList: [
-        { code: 'pt-BR', name: 'Português' },
+        { code: 'BR', name: 'Português' },
     ],
 };
 
@@ -105,7 +105,7 @@ const themeConfigSlice = createSlice({
         },
 
         setPageTitle(state, { payload }) {
-            document.title = `${payload} | VRISTO - Multipurpose Tailwind Dashboard Template`;
+            document.title = `${payload} | Athlete Vision`;
         },
     },
 });

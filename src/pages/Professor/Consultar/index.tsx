@@ -13,7 +13,7 @@ import DocumentosModal from '@/components/Modals/Documentos';
 import { IDocumento } from '@/types/IDocumento';
 import { IServico } from '@/types/IServico';
 import ServicosModal from '@/components/Modals/Servicos';
-import professoresData from '@/Datas/professores.json'
+import { getProfessoresData } from '@/Datas/professoresData';
 
 const ProfessorConsultar = () => {
     const { t } = useTranslation();
@@ -24,7 +24,8 @@ const ProfessorConsultar = () => {
 
     const breadCrumbsItems: IBreadcrumbItem[] = [
         {
-            label: t('teacher')
+            label: t('teacher'),
+            icon: 'FaPerson'
         },
         {
             label: t('consult')
@@ -32,8 +33,7 @@ const ProfessorConsultar = () => {
     ];
 
     // DataTable
-
-    const data: IProfessorResponse[] = professoresData;
+    const data: IProfessorResponse[] = getProfessoresData();
 
     const columns: DataTableColumn<any>[] = [
         {
@@ -62,43 +62,47 @@ const ProfessorConsultar = () => {
         },
         {
             accessor: '#',
-            title: 'Ação',
+            title: t('action'),
+            width: '10%',
+            textAlign: 'center',
             render: (item: any) => (
-                <ActionMenu
-                    item={item}
-                    apiRoute={apiRoute}
-                    pageRoute={pageRoute}
-                    hideEnable={true}
-                    onRefresh={() => setRefresh(true)}
-                    customButtons={(i) => (
-                        <div>
-                            <Menu.Item
-                                leftSection={<DynamicIcons name={'MdDesignServices'} />}
-                                onClick={() => {
-                                    openModalServicos(i.servicos);
-                                }}
-                                style={{
-                                    padding: '4px 8px',
-                                    fontSize: '14px'
-                                }}
-                            >
-                                {t('services')}
-                            </Menu.Item>
+                <div className="flex justify-center">
+                    <ActionMenu
+                        item={item}
+                        apiRoute={apiRoute}
+                        pageRoute={pageRoute}
+                        hideEnable={true}
+                        onRefresh={() => setRefresh(true)}
+                        customButtons={(i) => (
+                            <div>
+                                <Menu.Item
+                                    leftSection={<DynamicIcons name={'MdDesignServices'} />}
+                                    onClick={() => {
+                                        openModalServicos(i.servicos);
+                                    }}
+                                    style={{
+                                        padding: '4px 8px',
+                                        fontSize: '14px'
+                                    }}
+                                >
+                                    {t('services')}
+                                </Menu.Item>
 
-                            <Menu.Item
-                                leftSection={<DynamicIcons name={'FaRegFileAlt'} />}
-                                onClick={() => {
-                                    openModalDocumentos(i.documentos);
-                                }}
-                                style={{
-                                    padding: '4px 8px',
-                                    fontSize: '14px'
-                                }}
-                            >
-                                {t('documents')}
-                            </Menu.Item>
-                        </div>
-                    )}></ActionMenu>
+                                <Menu.Item
+                                    leftSection={<DynamicIcons name={'FaRegFileAlt'} />}
+                                    onClick={() => {
+                                        openModalDocumentos(i.documentos);
+                                    }}
+                                    style={{
+                                        padding: '4px 8px',
+                                        fontSize: '14px'
+                                    }}
+                                >
+                                    {t('documents')}
+                                </Menu.Item>
+                            </div>
+                        )}></ActionMenu>
+                </div>
             )
         }
     ];
@@ -134,6 +138,9 @@ const ProfessorConsultar = () => {
             />
 
             <div className="panel">
+                <div className="text-2xl mb-4">
+                    <b>{t('teacher')}</b>
+                </div>
                 <div className="flex justify-end mb-5">
                     <Link
                         className="btn btn-primary"

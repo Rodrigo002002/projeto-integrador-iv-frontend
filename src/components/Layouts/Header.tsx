@@ -164,6 +164,19 @@ const Header = () => {
                                     <DynamicIcons name="FaMoon" />
                                 </button>
                             )}
+                            {themeConfig.theme === 'system' && (
+                                <button
+                                    className={`${
+                                        themeConfig.theme === 'system' &&
+                                        'flex items-center p-2 rounded-full bg-white-light/40 dark:bg-dark/40 hover:text-primary hover:bg-white-light/90 dark:hover:bg-dark/60'
+                                    }`}
+                                    onClick={() => {
+                                        dispatch(toggleTheme('light'));
+                                    }}
+                                >
+                                    <DynamicIcons name="FaCloudMoon" />
+                                </button>
+                            )}
                         </div>
                         <div className="dropdown shrink-0">
                             <Dropdown
@@ -180,8 +193,8 @@ const Header = () => {
                                                     type="button"
                                                     className={`flex w-full hover:text-primary rounded-lg ${i18next.language === item.code ? 'bg-primary/10 text-primary' : ''}`}
                                                     onClick={() => {
-                                                        i18next.changeLanguage(item.code);
-                                                        // setFlag(item.code);
+                                                        // i18next.changeLanguage(item.code);
+                                                        setFlag(item.code);
                                                         setLocale(item.code);
                                                     }}
                                                 >
@@ -206,25 +219,19 @@ const Header = () => {
                                             <DynamicIcons className="rounded-md w-10 h-10 object-cover" name="FaUser" />
                                             <div className="ltr:pl-4 rtl:pr-4 truncate">
                                                 <h4 className="text-base">
-                                                    John Doe
-                                                    <span className="text-xs bg-success-light rounded text-success px-1 ltr:ml-2 rtl:ml-2">Pro</span>
+                                                    Gestor
+                                                    <span className="text-xs bg-success-light rounded text-success px-1 ltr:ml-2 rtl:ml-2">{t('manager')}</span>
                                                 </h4>
                                                 <button type="button" className="text-black/60 hover:text-primary dark:text-dark-light/60 dark:hover:text-white">
-                                                    johndoe@gmail.com
+                                                    gestor@gmail.com
                                                 </button>
                                             </div>
                                         </div>
                                     </li>
-                                    <li>
-                                        <Link to="/users/profile" className="dark:hover:text-white">
-                                            <DynamicIcons name="FaUser" className="w-4.5 h-4.5 ltr:mr-2 rtl:ml-2 shrink-0" />
-                                            Profile
-                                        </Link>
-                                    </li>
                                     <li className="border-t border-white-light dark:border-white-light/10">
-                                        <Link to="/auth/boxed-signin" className="text-danger !py-3">
+                                        <Link to="/auth/login" className="text-danger !py-3">
                                             <DynamicIcons name="IoLogOutOutline" className="w-4.5 h-4.5 ltr:mr-2 rtl:ml-2 shrink-0" />
-                                            Sign Out
+                                            {t('button.logout')}
                                         </Link>
                                     </li>
                                 </ul>

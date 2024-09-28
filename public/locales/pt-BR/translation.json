@@ -1,4 +1,5 @@
 {
+    "action": "Ação",
     "active": "Ativo",
     "archives": "Arquivos",
     "administrator": "Administrador",
@@ -6,6 +7,8 @@
     "attention": "Atenção",
 
     "back": "Voltar",
+    "benefit": "Benefício",
+    "benefits": "Benefícios",
     "button": {
         "add": "Adicionar",
         "cancel": "Cancelar",
@@ -16,15 +19,19 @@
         "edit": "Editar",
         "enable": "Ativar",
         "filter": "Filtrar",
+        "login": "Entrar",
+        "include": "Incluir",
         "logout": "Sair",
         "ok": "Ok",
         "ordering": "Ordenar",
         "reset": "Resetar",
         "return": "Voltar",
+        "register": "Registrar-se",
         "save": "Salvar",
         "search": "Pesquisar",
         "send": "Enviar",
         "sendEmail": "Enviar e-mail",
+        "signup": "Cadastrar-se",
         "transfer": "Transferir"
     },
 
@@ -43,6 +50,7 @@
     "chooseFile": "Escolha um arquivo",
     "chooseOption": "Selecione uma opção",
     "class": "Turma",
+    "clasS": "Aula",
     "classes": "Aulas",
     "clickToOpen": "Clique para abrir",
     "collapseAll": "Recolher todos",
@@ -74,7 +82,11 @@
         "noDataContent": "Nenhum registro",
         "paginationInfo": "Exibindo de {{from}} até {{to}} de {{totalRecords}} registros"
     },
-
+    "date": {
+        "date": "Data",
+        "deadline": "Data prazo",
+        "payment": "Data pagamento"
+    },
     "deselectAll": "Desmarcar todos",
     "description": "Descrição",
     "documents": "Documentos",
@@ -85,6 +97,7 @@
     "enableLog": "Habilitar log",
     "end": "Término",
     "email": "E-mail",
+    "event": "Evento",
     "expandAll": "Expandir todos",
 
     "filter": "Filtro",
@@ -106,12 +119,18 @@
     "initialDate": "Data inicio",
     "internalServerError": "Erro do servidor",
 
+    "lang": {
+        "portuguesse": "Português",
+        "english": "Inglês",
+        "spanish": "Espanhol"
+    },
     "link": "Link",
     "listing": "Listagem",
     "loading": "Carregando",
     "login": "Login",
 
     "manageFiles": "Gerenciar arquivos",
+    "manager": "Gestor",
     "menu": "Menu",
     "menus": "Menus",
     "message": {
@@ -123,6 +142,8 @@
             "error": "Erro ao concluir processo",
             "success": "Processo concluído com sucesso"
         },
+        "register": "Não tem conta?",
+        "haveAccount": "Você já tem uma conta?",
         "serviceUnavailable": "O serviço solicitado está indisponível!",
         "toDisable": "Deseja desativar este registro?",
         "toEnable": "Deseja ativar este registro?",
@@ -154,15 +175,20 @@
 
     "observation": "Observação",
     "obrigatory": "Esta informação é obrigatória",
+    "or": "Ou",
     "order": "Ordem",
     "orientations": "Orientações",
-
+    "payment": "Pagamento",
+    "plan": "Plano",
     "pageNotFound": "Página não encontrada",
     "password": "Senha",
+    "paid": "Pago",
     "permissions": "Permissões",
     "personal": "Pessoal",
     "period": "Periodo",
     "phone": "Telefone",
+    "presentStudents": "Alunos presentes",
+    "price": "Preço",
     "processing": "Processando",
     "profile": "Perfil",
     "profiles": "Perfis",
@@ -199,11 +225,14 @@
     "start": "Início",
     "status": "Status",
     "student": "Aluno",
+    "students": "Alunos",
     "switchCompany": "Trocar de empresa",
     "system": "Sistema",
     "systemAccess": "Acesso ao sistema",
 
     "teacher": "Professor",
+    "team": "Equipe",
+    "teams": "Equipes",
     "title": "Título",
     "theme": {
         "box": "Caixa",
@@ -267,6 +296,7 @@
 
     "uri": "URI",
 
+    "value": "Valor",
     "validation": {
         "invalidCpf": "CPF inválido",
         "invalidEmail": "Digite um e-mail válido",

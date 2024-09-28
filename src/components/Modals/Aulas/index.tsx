@@ -22,9 +22,13 @@ const AulasModal: React.FC<IAulasModalProps> = ({
 
     const openAlunosModal = (alunos: any) => {
         var mappedAlunos: IAluno[] = []
-        alunos.alunosPresentes.map((aluno) => mappedAlunos.push(aluno));
+        alunos.alunosPresentes.map(alunoIndex => (
+            mappedAlunos.push(alunoIndex)
+        ));
+
         console.log(mappedAlunos);
-        setOpenAlunosModal(true)
+        setIsAulasModal(false);
+        setOpenAlunosModal(true);
         setCurrentAlunos(mappedAlunos);
     }
 
@@ -90,7 +94,9 @@ const AulasModal: React.FC<IAulasModalProps> = ({
 
                                     <div
                                         className="text-lg font-medium bg-[#fbfbfb] dark:bg-[#121c2c] ltr:pl-5 rtl:pr-5 py-3 ltr:pr-[50px] rtl:pl-[50px]">
-                                        {t('classes')}
+                                        <div className="mb-5">
+                                            {t('classes')}
+                                        </div>
 
                                         <BasicDataTable
                                             columns={columns}

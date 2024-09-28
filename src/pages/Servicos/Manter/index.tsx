@@ -2,19 +2,18 @@ import { IBreadcrumbItem } from '@/components/BreadCrumbs/interfaces';
 import { useTranslation } from 'react-i18next';
 import { useParams } from 'react-router-dom';
 import BreadCrumbs from '@/components/BreadCrumbs/BreadCrumbs';
-import professoresData from '@/Datas/professores.json';
 import React, { useEffect, useState } from 'react';
-import { IServicoForm } from '@/types/IServico';
+import { ITipoServicoForm } from '@/types/IServico';
 import { IProfessorForm } from '@/types/IProfessor';
 import { FormikProps } from 'formik';
 import CoreLoader from '@/components/Loader';
 import { FormProvider } from '@/providers/FormProvider';
 import FormInput from '@/components/Form/FormInput';
-import FormInputRg from '@/components/Form/FormInputRg';
-import FormInputCpf from '@/components/Form/FormInputCpf';
 import { DynamicIcons } from '@/components/DynamicIcons/DynamicIcons';
+import { defaultData } from '@/pages/Servicos/Manter/helpers';
+import { getTiposServico } from '@/Datas/servicosData';
 
-const ServicoManter = () => {
+const TipoServicoManter = () => {
     const { id } = useParams<{ id: string }>();
 
     const { t } = useTranslation();
@@ -22,7 +21,11 @@ const ServicoManter = () => {
     const breadCrumbsItems: IBreadcrumbItem[] = [
         {
             label: t('service'),
-            uri: '/servico/consultar'
+            uri: '/servico/tipo/consultar',
+            icon: 'MdDesignServices'
+        },
+        {
+            label: t('consult')
         },
         {
             label: id ? t('edit') : t('create')
@@ -30,21 +33,14 @@ const ServicoManter = () => {
     ];
 
     // Form
-    const formInitialValues: IServicoForm = {
-        tipo: null,
-        pagamento: null,
-        professor: null,
-        aluno: null
-    }
-
     const [genericError, setGenericError] = useState<string | null>(null);
     const [loadingBtn, setLoadingBtn] = useState<boolean>(false);
-    const [initialValues, setInitialValues] = useState(formInitialValues);
+    const [initialValues, setInitialValues] = useState<ITipoServicoForm>(defaultData);
 
 
     useEffect(() => {
         if (id) {
-            setInitialValues(professoresData[0].servicos[0]);
+            setInitialValues(getTiposServico()[0]);
         }
     }, []);
 
@@ -58,7 +54,10 @@ const ServicoManter = () => {
             />
 
             <div className="panel mt-5">
-                <CoreLoader id={'professores'}>
+                <div className="text-2xl mb-4">
+                    <b>{t('service')}</b>
+                </div>
+                <CoreLoader id={'servicos'}>
                     <FormProvider initialValues={initialValues} onSubmit={onSubmit}>
                         {(formikProps: FormikProps<any>) => (
                             <>
@@ -71,17 +70,10 @@ const ServicoManter = () => {
                                     />
 
                                     <FormInput
-                                        name="professor.nome"
-                                        label={t('teacher')}
+                                        name="preco"
+                                        label={t('price')}
                                         required={true}
-                                        placeholder={t('teacher')}
-                                    />
-
-                                    <FormInput
-                                        name="aluno.nome"
-                                        label={t('student')}
-                                        required={true}
-                                        placeholder={t('student')}
+                                        placeholder={t('price')}
                                     />
                                 </div>
 
@@ -108,6 +100,6 @@ const ServicoManter = () => {
             </div>
         </div>
     );
-}
+};
 
-export default ServicoManter;
+export default TipoServicoManter;

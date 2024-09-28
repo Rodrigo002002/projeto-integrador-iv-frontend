@@ -1,13 +1,16 @@
 import { Link, useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { IRootState } from '../../store';
-import { setPageTitle, toggleRTL } from '../../store/themeConfigSlice';
+import { IRootState } from '@/store';
+import { setPageTitle, toggleRTL } from '@/store/themeConfigSlice';
 import { useEffect, useState } from 'react';
-import Dropdown from '../../components/Dropdown';
+import Dropdown from '@/components/Dropdown';
 import i18next from 'i18next';
-import { DynamicIcons } from '../../components/DynamicIcons/DynamicIcons';
+import { DynamicIcons } from '@/components/DynamicIcons/DynamicIcons';
+import { useTranslation } from 'react-i18next';
 
 const RegisterBoxed = () => {
+    const { t } = useTranslation();
+
     const dispatch = useDispatch();
     useEffect(() => {
         dispatch(setPageTitle('Register Boxed'));
@@ -86,55 +89,49 @@ const RegisterBoxed = () => {
                         </div>
                         <div className="mx-auto w-full max-w-[440px]">
                             <div className="mb-10">
-                                <h1 className="text-3xl font-extrabold uppercase !leading-snug text-primary md:text-4xl">Sign Up</h1>
-                                <p className="text-base font-bold leading-normal text-white-dark">Enter your email and password to register</p>
+                                <h1 className="text-3xl font-extrabold uppercase !leading-snug text-primary md:text-4xl">{t('Athlete Vision')}</h1>
+                                <p className="text-base font-bold leading-normal text-white-dark">{t('button.signup')}</p>
                             </div>
                             <form className="space-y-5 dark:text-white" onSubmit={submitForm}>
                                 <div>
-                                    <label htmlFor="Name">Name</label>
+                                    <label htmlFor="Name">{t('name')}</label>
                                     <div className="relative text-white-dark">
-                                        <input id="Name" type="text" placeholder="Enter Name" className="form-input ps-10 placeholder:text-white-dark" />
+                                        <input id="Name" type="text" placeholder={t('name')} className="form-input ps-10 placeholder:text-white-dark" />
                                         <span className="absolute start-4 top-1/2 -translate-y-1/2">
                                             <DynamicIcons name="FaUser" />
                                         </span>
                                     </div>
                                 </div>
                                 <div>
-                                    <label htmlFor="Email">Email</label>
+                                    <label htmlFor="Email">{t('email')}</label>
                                     <div className="relative text-white-dark">
-                                        <input id="Email" type="email" placeholder="Enter Email" className="form-input ps-10 placeholder:text-white-dark" />
+                                        <input id="Email" type="email" placeholder={t('email')} className="form-input ps-10 placeholder:text-white-dark" />
                                         <span className="absolute start-4 top-1/2 -translate-y-1/2">
-                                            <DynamicIcons name="FaMail" />
+                                            <DynamicIcons name="CiMail" />
                                         </span>
                                     </div>
                                 </div>
                                 <div>
-                                    <label htmlFor="Password">Password</label>
+                                    <label htmlFor="Password">{t('password')}</label>
                                     <div className="relative text-white-dark">
-                                        <input id="Password" type="password" placeholder="Enter Password" className="form-input ps-10 placeholder:text-white-dark" />
+                                        <input id="Password" type="password" placeholder={t('password')} className="form-input ps-10 placeholder:text-white-dark" />
                                         <span className="absolute start-4 top-1/2 -translate-y-1/2">
-                                            <DynamicIcons name="FaLockDots" />
+                                            <DynamicIcons name="CiLock" />
                                         </span>
                                     </div>
                                 </div>
-                                <div>
-                                    <label className="flex cursor-pointer items-center">
-                                        <input type="checkbox" className="form-checkbox bg-white dark:bg-black" />
-                                        <span className="text-white-dark">Subscribe to weekly newsletter</span>
-                                    </label>
-                                </div>
-                                <button type="submit" className="btn btn-gradient !mt-6 w-full border-0 uppercase shadow-[0_10px_20px_-10px_rgba(67,97,238,0.44)]">
-                                    Sign Up
+                                <button type="submit" className="btn btn-gradient !mt-10 w-full border-0 uppercase shadow-[0_10px_20px_-10px_rgba(67,97,238,0.44)]">
+                                    {t('button.signup')}
                                 </button>
                             </form>
                             <div className="relative my-7 text-center md:mb-9">
                                 <span className="absolute inset-x-0 top-1/2 h-px w-full -translate-y-1/2 bg-white-light dark:bg-white-dark"></span>
-                                <span className="relative bg-white px-2 font-bold uppercase text-white-dark dark:bg-dark dark:text-white-light">or</span>
+                                <span className="relative bg-white px-2 font-bold uppercase text-white-dark dark:bg-dark dark:text-white-light">{t('or')}</span>
                             </div>
                             <div className="text-center dark:text-white">
-                                Already have an account ?&nbsp;
-                                <Link to="/auth/boxed-signin" className="uppercase text-primary underline transition hover:text-black dark:hover:text-white">
-                                    SIGN IN
+                                {t('message.haveAccount')}
+                                <Link to="/auth/login" className="ml-4 uppercase text-primary underline transition hover:text-black dark:hover:text-white">
+                                    {t('button.login')}
                                 </Link>
                             </div>
                         </div>

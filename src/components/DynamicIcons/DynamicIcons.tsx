@@ -17,6 +17,7 @@ import * as IconPi from 'react-icons/pi';
 import * as IconRx from 'react-icons/rx';
 import * as IconSl from 'react-icons/sl';
 import * as IconTb from 'react-icons/tb';
+import * as IconCi from 'react-icons/ci';
 
 import React from 'react';
 
@@ -41,7 +42,8 @@ const icons: IconLibrary = {
     ...IconPi,
     ...IconRx,
     ...IconSl,
-    ...IconTb
+    ...IconTb,
+    ...IconCi
 };
 
 const convertToPascalCase = (str: string): string => {

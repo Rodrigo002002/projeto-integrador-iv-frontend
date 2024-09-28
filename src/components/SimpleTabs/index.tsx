@@ -1,14 +1,11 @@
 import React, { Fragment } from 'react';
 import { Tab, TabGroup, TabList, TabPanel, TabPanels } from '@headlessui/react';
 import { DynamicIcons } from '@/components/DynamicIcons/DynamicIcons';
+import { ISimpleTabs } from '@/components/SimpleTabs/interfaces';
 
-interface SimpleTableProps {
-    tabs: any
-}
-
-const SimpleTabs: React.FC<SimpleTableProps> = ({
+const SimpleTabs = ({
                                                     tabs
-                                                }) => {
+                                                }: ISimpleTabs) => {
 
     return (
         <TabGroup>

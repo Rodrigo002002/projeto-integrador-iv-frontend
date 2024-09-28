@@ -37,10 +37,6 @@ const AlunosModal: React.FC<IAlunosModalProps> = ({
         {
             accessor: 'cpf',
             title: t('cpf')
-        },
-        {
-            accessor: 'turma',
-            title: t('class')
         }
     ];
 
@@ -68,7 +64,7 @@ const AlunosModal: React.FC<IAlunosModalProps> = ({
                                 leaveTo="opacity-0 scale-95"
                             >
                                 <DialogPanel
-                                    className="panel border-0 p-0 rounded-lg overflow-hidden md:w-full max-w-lg w-[90%] my-8">
+                                    className="panel border-0 p-0 rounded-lg overflow-hidden md:w-full max-w-3xl w-[90%] my-8">
                                     <button
                                         type="button"
                                         onClick={() => {
@@ -81,7 +77,9 @@ const AlunosModal: React.FC<IAlunosModalProps> = ({
 
                                     <div
                                         className="text-lg font-medium bg-[#fbfbfb] dark:bg-[#121c2c] ltr:pl-5 rtl:pr-5 py-3 ltr:pr-[50px] rtl:pl-[50px]">
-                                        {t('students')}
+                                        <div className="mb-5">
+                                            {t('students')}
+                                        </div>
 
                                         <BasicDataTable
                                             columns={columns}

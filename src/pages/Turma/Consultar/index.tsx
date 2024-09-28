@@ -4,22 +4,22 @@ import React, { useState } from 'react';
 import BreadCrumbs from '@/components/BreadCrumbs/BreadCrumbs';
 import { Link } from 'react-router-dom';
 import BasicDataTable from '@/components/DataTable/BasicDataTable';
-import turmasData from '@/Datas/turmas.json';
 import { DataTableColumn } from 'mantine-datatable';
 import ActionMenu from '@/components/DataTable/ActionMenu';
-import { Menu } from '@mantine/core';
 import { DynamicIcons } from '@/components/DynamicIcons/DynamicIcons';
 import { IAula } from '@/types/IAula';
 import { IAluno } from '@/types/IAluno';
 import AulasModal from '@/components/Modals/Aulas';
 import AlunosModal from '@/components/Modals/Alunos';
+import { getTurmasData } from '@/Datas/turmasData';
 
 const TurmaConsultar = () => {
     const { t } = useTranslation();
 
     const breadCrumbsItems: IBreadcrumbItem[] = [
         {
-            label: t('class')
+            label: t('class'),
+            icon: "FaPeopleGroup"
         },
         {
             label: t('consult')
@@ -38,19 +38,15 @@ const TurmaConsultar = () => {
     const [currentAlunos, setCurrentAlunos] = useState<IAluno[]>([]);
     const [currentAulas, setCurrentAulas] = useState<IAula[]>([]);
 
-    const openAulasModal = (aulas: any) => {
-        var mappedAulas: IAula[] = []
-        aulas.aulas.map(aula => mappedAulas.push(aula));
-        setOpenAulaModal(true)
-        setCurrentAulas(mappedAulas);
-    }
-
-    const openAlunosModal = (alunos: any) => {
-        var mappedAlunos: IAluno[] = []
-        alunos.alunos.map(aluno => mappedAlunos.push(aluno));
-        setOpenAlunosModal(true)
-        setCurrentAlunos(mappedAlunos);
-    }
+    // const openAulasModal = (aulas: IAula[]) => {
+    //     setOpenAulaModal(true)
+    //     setCurrentAulas(aulas);
+    // }
+    //
+    // const openAlunosModal = (alunos: IAluno[]) => {
+    //     setOpenAlunosModal(true)
+    //     setCurrentAlunos(alunos);
+    // }
     // DataTable
     const columns: DataTableColumn<any>[] = [
         {
@@ -58,7 +54,7 @@ const TurmaConsultar = () => {
             title: 'Id'
         },
         {
-            accessor: 'modalidade',
+            accessor: 'modalidade.nome',
             title: t('modality')
         },
         {
@@ -72,41 +68,47 @@ const TurmaConsultar = () => {
         {
             accessor: 'alunos',
             title: t('students'),
-            render: (i: IAluno[]) => (
-                <button
-                    className="text-primary hover:text-black"
-                    onClick={() => openAlunosModal(i)}
+            textAlign: 'center',
+            width: '15%',
+            render: (item: any) => (
+                <Link
+                    className="flex justify-center text-primary hover:text-black"
+                    to={`/turma/${item.id}/alunos`}
                 >
-                    <DynamicIcons name="FaEye" />
-                </button>
+                    <DynamicIcons name="FaRegAddressBook" />
+                </Link>
             )
         },
         {
             accessor: 'aulas',
-            title: 'Ação',
-            render: (item: IAula[]) => (
-                <ActionMenu
-                    item={item}
-                    apiRoute={apiRoute}
-                    pageRoute={pageRoute}
-                    hideEnable={true}
-                    onRefresh={() => setRefresh(true)}
-                    customButtons={(i) => (
-                        <div>
-                            <Menu.Item
-                                leftSection={<DynamicIcons name={'FaBook'} />}
-                                onClick={() => {
-                                    openAulasModal(i);
-                                }}
-                                style={{
-                                    padding: '4px 8px',
-                                    fontSize: '14px'
-                                }}
-                            >
-                                {t('classes')}
-                            </Menu.Item>
-                        </div>
-                    )}></ActionMenu>
+            title: t('classes'),
+            textAlign: 'center',
+            width: '15%',
+            render: (item: any) => (
+                <Link
+                    className="flex justify-center text-primary hover:text-black"
+                    to={`/turma/${item.id}/aulas`}
+                >
+                    <DynamicIcons name="FaBook" />
+                </Link>
+            )
+        },
+        {
+            accessor: '#',
+            title: t('action'),
+            width: '10%',
+            textAlign: 'center',
+            render: (item: any) => (
+                <div className="flex justify-center">
+                    <ActionMenu
+                        item={item}
+                        apiRoute={apiRoute}
+                        pageRoute={pageRoute}
+                        hideEnable={true}
+                        onRefresh={() => setRefresh(true)}>
+
+                    </ActionMenu>
+                </div>
             )
         }
     ]
@@ -117,6 +119,9 @@ const TurmaConsultar = () => {
             />
 
             <div className="panel">
+                <div className="text-2xl mb-4">
+                    <b>{t('class')}</b>
+                </div>
                 <div className="flex justify-end mb-5">
                     <Link
                         className="btn btn-primary"
@@ -128,7 +133,7 @@ const TurmaConsultar = () => {
 
                 <BasicDataTable
                     columns={columns}
-                    data={turmasData}
+                    data={getTurmasData()}
                 />
             </div>
 

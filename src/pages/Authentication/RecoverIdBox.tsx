@@ -1,11 +1,11 @@
 import { Link, useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { IRootState } from '../../store';
+import { IRootState } from '@/store';
 import { useEffect, useState } from 'react';
-import { setPageTitle, toggleRTL } from '../../store/themeConfigSlice';
-import Dropdown from '../../components/Dropdown';
+import { setPageTitle, toggleRTL } from '@/store/themeConfigSlice';
+import Dropdown from '@/components/Dropdown';
 import i18next from 'i18next';
-import { DynamicIcons } from '../../components/DynamicIcons/DynamicIcons';
+import { DynamicIcons } from '@/components/DynamicIcons/DynamicIcons';
 
 const RecoverIdBox = () => {
     const dispatch = useDispatch();

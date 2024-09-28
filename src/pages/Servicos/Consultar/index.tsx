@@ -4,23 +4,24 @@ import ActionMenu from '@/components/DataTable/ActionMenu';
 import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
 import BasicDataTable from '@/components/DataTable/BasicDataTable';
-import professoresData from '@/Datas/professores.json';
 import BreadCrumbs from '@/components/BreadCrumbs/BreadCrumbs';
 import { IBreadcrumbItem } from '@/components/BreadCrumbs/interfaces';
+import { getServicosData, getTiposServico } from '@/Datas/servicosData';
 
 const ServicoConsultar = () => {
     const { t } = useTranslation();
 
     const breadCrumbsItems: IBreadcrumbItem[] = [
         {
-            label: t('services')
+            label: t('services'),
+            icon: 'MdDesignServices'
         },
         {
             label: t('consult')
         }
     ];
 
-    const pageRoute = 'servico';
+    const pageRoute = 'servico/tipo';
     const apiRoute = '/servicos';
 
     const [refresh, setRefresh] = useState<boolean>(false);
@@ -33,53 +34,50 @@ const ServicoConsultar = () => {
         },
         {
             accessor: 'tipo',
-            title: 'Tipo'
+            title: t('type')
         },
         {
-            accessor: 'pagamento.pago',
-            title: 'Pago',
-            render: (pago: boolean) => (
-                <div>
-                    <span>{pago ? t('yes') : t('no')}</span>
-                </div>
+            accessor: 'preco',
+            title: t('price'),
+            render: (servico: any) => (
+                <span>{`R$ ${servico.preco}`}</span>
             )
         },
         {
-            accessor: 'professor.nome',
-            title: 'Professor'
-        },
-        {
-            accessor: 'aluno.nome',
-            title: 'Aluno'
-        },
-        {
-            accessor: 'professor.servico',
-            title: 'Ação',
+            accessor: '#',
+            title: t('action'),
+            width: '10%',
+            textAlign: 'center',
             render: (item: any) => (
-                <ActionMenu
-                    item={item}
-                    apiRoute={apiRoute}
-                    pageRoute={pageRoute}
-                    hideEnable={true}
-                    onRefresh={() => setRefresh(true)}
-                    customButtons={(servico) => (
-                        <div>
-                        </div>
-                    )}></ActionMenu>
+                <div className="flex justify-center">
+                    <ActionMenu
+                        item={item}
+                        apiRoute={apiRoute}
+                        pageRoute={pageRoute}
+                        hideEnable={true}
+                        onRefresh={() => setRefresh(true)}
+                        customButtons={(servico) => (
+                            <div>
+                            </div>
+                        )}></ActionMenu>
+                </div>
             )
         }
     ];
     return (
         <div>
             <BreadCrumbs
-                items={breadCrumbsItems}
-            />
+                    items={breadCrumbsItems}
+                />
 
             <div className="panel">
+                <div className="text-2xl mb-4">
+                    <b>{t('service')}</b>
+                </div>
                 <div className="flex justify-end mb-5">
                     <Link
                         className="btn btn-primary"
-                        to={`/servico/cadastrar`}
+                        to={`/servico/tipo/cadastrar`}
                     >
                         {t('button.create')}
                     </Link>
@@ -87,7 +85,7 @@ const ServicoConsultar = () => {
 
                 <BasicDataTable
                     columns={columns}
-                    data={professoresData[0].servicos}
+                    data={getTiposServico()}
                 />
             </div>
         </div>

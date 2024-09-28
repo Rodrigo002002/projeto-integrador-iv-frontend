@@ -14,7 +14,7 @@ const initialState = {
     sidebar: false,
     semiDark: themeConfig.theme.semiDark,
     languageList: [
-        { code: 'pt-BR', name: 'Português' }
+        { code: 'BR', name: 'Português' }
     ],
     isServiceAvailable: true,
     systemName: themeConfig.systemName
